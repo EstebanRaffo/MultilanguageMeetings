@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'country','province', 'sex', 'age', 'telephone', 'language', 'website', 'message', 'photo',
     ];
 
     /**
@@ -27,4 +27,18 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public static $photoFolder = '/Users/';
+
+    public static function photoFolder() {
+      return User::$photoFolder;
+    }
+
+    public function getPhoto() {
+      return '/storage' . User::$photoFolder . $this->photo;
+    }
+
+    public inscriptions(){
+      return $this->hasMany(Inscription::class);
+    }
 }
