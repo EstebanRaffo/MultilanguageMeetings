@@ -8,8 +8,8 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
+                    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
+                        {{ csrf_field() }}
 
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
@@ -59,6 +59,21 @@
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                             </div>
+                        </div>
+
+                        <!-- Subir Foto -->
+                        <div class="form-group row">
+                          <label for="photo" class="col-md-4 col-form-label text-md-right">Subir Foto*</label>
+
+                          <div class="col-md-6">
+                            <input type="file" name="photo" value="{{ old('photo', $user->photo) }}">
+
+                            @if ($errors->has('photo'))
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('photo') }}</strong>
+                                </span>
+                            @endif
+                          </div>
                         </div>
 
                         <div class="form-group row mb-0">

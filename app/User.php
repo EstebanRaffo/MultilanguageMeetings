@@ -38,7 +38,7 @@ class User extends Authenticatable
       return '/storage' . User::$photoFolder . $this->photo;
     }
 
-    public inscriptions(){
-      return $this->hasMany(Inscription::class);
-    }
+    // public inscriptions(){
+    //   return $this->hasMany(Inscription::class);
+    // }
 }

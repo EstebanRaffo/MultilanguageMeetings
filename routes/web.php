@@ -18,21 +18,20 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/home', 'HomeController@index');
 Route::get('/home/quienesSomos', 'HomeController@quienesSomos');
 Route::get('/home/preguntasFrecuentes', 'HomeController@preguntasFrecuentes');
 Route::get('/preferences', 'HomeController@preferences');
 
 // Users
-Route::get('/user', 'UserController@profile')->name('profile');
-Route::get('/users', 'UserController@list')->name('list-users');
-Route::get('/user/edit', 'UserController@edit');
-Route::put('/user/edit', 'UserController@update')->name('edit-user');
-Route::delete('/user/{id}/delete', 'UserController@delete')->name('delete-user');
-Route::get('/user/{id}', 'UserController@show');
 Route::get('/registerUser', 'UserController@registerUser')->name('register');
 Route::post('/registerUser', 'UserController@save');
+Route::get('/users', 'UserController@list')->name('list-users');
+Route::get('/profile', 'UserController@profile')->name('profile');
+Route::get('/user/{id}', 'UserController@show');
+// Continuar
+Route::delete('/user/{id}/delete', 'UserController@delete')->name('delete-user');
+Route::get('/user/edit', 'UserController@edit');
+Route::put('/user/edit', 'UserController@update')->name('edit-user');
 
 // Events
 Route::get('/events', 'EventController@list')->name('list-events');

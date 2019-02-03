@@ -34,6 +34,16 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
 
+                        @auth
+                            <li class="nav-item active"><a href="/users" class="nav-link">Usuarios</a></li>
+                            {{--<li class="nav-item active"><a href="{{ route('nuevo-evento') }}" class="nav-link">Nuevo Evento</a></li>--}}
+                            {{--<li class="nav-item active"><a href="{{ route('muro-posts') }}" class="nav-link">Muro</a></li>--}}
+                            {{--<li class="nav-item active"><a href="{{ route('lista-eventos') }}" class="nav-link">Eventos</a></li>--}}
+                        @endauth
+
+                        <li class="nav-item active"><a href="/home/quienesSomos" class="nav-link">Quienes Somos</a></li>
+                        <li class="nav-item active"><a href="/home/preguntasFrecuentes" class="nav-link">Preguntas Frecuentes</a></li>
+
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -51,7 +61,7 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                  <img src="{{ Auth::user()->getPhoto() }}" width=50> {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">

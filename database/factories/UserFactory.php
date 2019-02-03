@@ -4,7 +4,7 @@ use Faker\Generator as Faker;
 use Faker\Provider\en_US\Address;
 use Faker\Provider\Internet;
 use Faker\Provider\Lorem;
-
+use App\User;
 /*
 |--------------------------------------------------------------------------
 | Model Factories
@@ -32,6 +32,6 @@ $factory->define(App\User::class, function (Faker $faker) {
         'language' => 'English',
         'role_id' => '2',
         'province' => 'Buenos Aires',
-        'photo' => 'https://cdn.worldvectorlogo.com/logos/laravel.svg'
+        'photo' => 'Usuario.jpg'
     ];
 });
