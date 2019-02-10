@@ -54,7 +54,6 @@ class UserController extends Controller
     }
 
     public function profile(){
-
         $user = Auth::user();
 
         if($user){
@@ -67,7 +66,6 @@ class UserController extends Controller
         //     $eventUser = Event::find($event_id);
         //     $userEvents[] = $eventUser;
         //   }
-
           return view('users.profile', compact('userEvents', 'user'));
         }
 
@@ -100,7 +98,53 @@ class UserController extends Controller
         //   }
         //
         // }
-
+        // dd($user);
         return view('users.profile', compact('user', 'userEvents', 'esSeguidor'));
+    }
+
+
+    public function delete($id){
+      $user = User::find($id);
+      $user->delete();
+			return redirect('/users');
+		}
+
+
+    public function edit(){
+      //$paises = $this->paises;
+      $idiomas = $this->idiomas;
+      $user = Auth::user();
+      dd($user);
+
+      if($user){
+        //return view('users.edit', compact('user', 'paises', 'idiomas'));
+        return view('users.edit', compact('user', 'idiomas'));
+      }
+      return redirect('/home');
+    }
+
+
+    public function update(Request $request){
+      $user = Auth::user();
+      $this->validate($request,[
+          'name' => 'required|string|max:255',
+          'email' => 'required|string|email|max:255',
+          'password' => 'required|string|min:6|confirmed',
+          'country' => 'required',
+          'sex' => 'required',
+          'photo' => 'required|nullable|image',
+      ]);
+      $user->fill($request->all());
+      $user->password = bcrypt($request->input('password'));
+
+      $foto = $request->file('photo');
+      $nombre = $request['name'] . '.' . $foto->extension();
+      $foto->storePubliclyAs('public' . User::photoFolder(), $nombre);
+      $user->photo = $nombre;
+
+      $user->save();
+
+      //dd($user);
+      return redirect()->route('profile');
     }
 }

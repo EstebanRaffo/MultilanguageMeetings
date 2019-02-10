@@ -26,10 +26,10 @@ Route::get('/preferences', 'HomeController@preferences');
 Route::get('/registerUser', 'UserController@registerUser')->name('register');
 Route::post('/registerUser', 'UserController@save');
 Route::get('/users', 'UserController@list')->name('list-users');
-Route::get('/profile', 'UserController@profile')->name('profile');
 Route::get('/user/{id}', 'UserController@show');
-// Continuar
 Route::delete('/user/{id}/delete', 'UserController@delete')->name('delete-user');
+Route::get('/profile', 'UserController@profile')->name('profile');
+
 Route::get('/user/edit', 'UserController@edit');
 Route::put('/user/edit', 'UserController@update')->name('edit-user');
 

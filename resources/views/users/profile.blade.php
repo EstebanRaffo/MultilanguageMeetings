@@ -20,11 +20,11 @@
       <p>Sitio Web: <a href="{{$user->website}}">{{ $user->website }}</a></p>
       <p>Mensaje: {{ $user->message }}</p>--}}
     </div>
-  {{--@if($user->id == Auth::id())
+    @if($user->id == Auth::id())
       <div class="col-sm-12">
           <a href="{{route('edit-user')}}" class="btn btn-primary">Editar Mis Datos</a>
       </div>
-    @endif--}}
+    @endif
   </div>
 
   <br><br>
