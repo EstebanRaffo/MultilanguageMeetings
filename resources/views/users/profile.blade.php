@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+  {{--dd($user)--}}
   <h1>{{ $user->name }}</h1>
   <br>
   <div class="row centrar">

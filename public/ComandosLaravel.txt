@@ -1,8 +1,12 @@
-- En terminal de ubuntu ejecuto (en la ruta de Laravel): 
+-En terminal de ubuntu ejecuto (en la ruta de Laravel): 
+
 composer create-project --prefer-dist laravel/laravel blog
 
 
 Escritorio/php/estebanraffo/Proyecto 
+
+
+-Correr estos 4 comandos en la carpeta del proyecto luego de crear el proyecto (si clono el proyecto por 1era vez, 1ero composer install): 
 
 composer install (si clone por 1era vez)
 cp .env.example .env
@@ -10,60 +14,64 @@ php artisan key:generate
 
 composer install
 php artisan serve
-(correr esos 4 comandos en la carpeta del proyecto luego de crear el proyecto) 
-(si clono el proyecto por 1era vez 1ero composer install)
 
-lista de comandos que puedo hacer:
+
+-Lista de comandos que puedo hacer:
 
 php artisan
 
 
-Iniciar un servidor: 
+-Iniciar un servidor: 
 
 php artisan serve
 
 
-Crear el controlador:
+-Crear el controlador:
 
 php artisan make:controller TareasController
 
 
-Crear el modelo:
+-Crear el modelo:
 
 php artisan make:model Tarea
 
 
-Para ver la lista de rutas creadas:
+-Para ver la lista de rutas creadas:
 
 php artisan route:list 
 
 
-Para editar un html que genera laravel:
+-Para editar un html que genera laravel:
 
 php artisan vendor:publish
 
 
-Dentro de public crea una carpeta (/public/storage) que es el acceso directo a storage/app/public (storage interno del FW)
+-Dentro de public crea una carpeta (/public/storage) que es el acceso directo a storage/app/public (storage interno del FW)
 
 php artisan storage:link
 
 
-Factories: llena modelos de eloquent con inform simulada
+-Factories: llena modelos de eloquent con inform simulada
 
 php artisan make:factory fabricaAutores
 
 
-Seeds (semillas): Para meter info de prueba en la db. Crear informacion inicial en la db. NO SE USAN EN CONTROLLERS.
+-Seeds (semillas): Para meter info de prueba en la db. Crear informacion inicial en la db. NO SE USAN EN CONTROLLERS.
 
 php artisan make:seed CargarAutores
 
 
-Para correr los seeds:
+-Para correr los seeds:
 
 php artisan db:seed
 
 
-Migraciones:
+-Crea pag de login y registracion (login.blade.php, register.blade.php)(views)
+
+php artisan make:auth
+
+
+-Migraciones:
 
 1- Crar tabla:
 
@@ -79,7 +87,7 @@ php artisan make:migration agregar_campos_tabla_nombreTabla
 Para agregar campos en una tabla existente. Crea la migración simple sin la plantilla. Métodos up() y down() correspondientes.
 
 
-Para correr todo junto:
+-Para correr todo junto:
 
 php artisan migrate --seed (php artisan migrate + php artisan db:seed)
 
@@ -123,9 +131,7 @@ Es equivalente a hacer php artisan migrate:reset + php artisan migrate
 Deshace y vuelve a ejecutar todas las operaciones de migración.
 
 
-Crea pag de login y registracion (login.blade.php, register.blade.php)(views)
 
-php artisan make:auth
 
 
 

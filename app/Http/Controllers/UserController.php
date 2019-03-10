@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Model;
 use App\User;
 use App\Event;
@@ -55,7 +56,7 @@ class UserController extends Controller
 
     public function profile(){
         $user = Auth::user();
-
+        //dd($user);
         if($user){
         //   $userInscriptions = Auth::user()->inscriptions;
         //   $userEvents = array();
@@ -66,7 +67,7 @@ class UserController extends Controller
         //     $eventUser = Event::find($event_id);
         //     $userEvents[] = $eventUser;
         //   }
-          return view('users.profile', compact('userEvents', 'user'));
+          return view('users.profile', compact('user'));
         }
 
         return redirect()->route('home');
@@ -113,7 +114,7 @@ class UserController extends Controller
     public function edit(){
       //$paises = $this->paises;
       $idiomas = $this->idiomas;
-      $user = Auth::user();
+      $user = Auth::user()->get();
       dd($user);
 
       if($user){
