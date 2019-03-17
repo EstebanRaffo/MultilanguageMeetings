@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-  {{--dd($user)--}}
+  {{-- dd($user->name) --}}
   <h1>{{ $user->name }}</h1>
   <br>
   <div class="row centrar">
@@ -24,6 +24,7 @@
     @if($user->id == Auth::id())
       <div class="col-sm-12">
           <a href="{{route('edit-user')}}" class="btn btn-primary">Editar Mis Datos</a>
+          {{-- dd($user->id) --}}
       </div>
     @endif
   </div>

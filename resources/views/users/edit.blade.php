@@ -34,7 +34,6 @@
                         </div>
                     </form>
                     <script src="js/validaciones.js"></script>
-
         </div>
     </div>
 </div>

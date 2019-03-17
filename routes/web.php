@@ -30,8 +30,8 @@ Route::get('/user/{id}', 'UserController@show');
 Route::delete('/user/{id}/delete', 'UserController@delete')->name('delete-user');
 Route::get('/profile', 'UserController@profile')->name('profile');
 
-Route::get('/user/edit', 'UserController@edit');
-Route::put('/user/edit', 'UserController@update')->name('edit-user');
+Route::get('/user/edit', 'UserController@edit')->name('edit-user');
+Route::put('/user/edit', 'UserController@update');
 
 // Events
 Route::get('/events', 'EventController@list')->name('list-events');

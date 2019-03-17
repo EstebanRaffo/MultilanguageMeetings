@@ -56,8 +56,8 @@ class UserController extends Controller
 
     public function profile(){
         $user = Auth::user();
-        //dd($user);
         if($user){
+          //dd($user);
         //   $userInscriptions = Auth::user()->inscriptions;
         //   $userEvents = array();
         //   $user = Auth::user();
@@ -69,7 +69,6 @@ class UserController extends Controller
         //   }
           return view('users.profile', compact('user'));
         }
-
         return redirect()->route('home');
     }
 
@@ -100,9 +99,8 @@ class UserController extends Controller
         //
         // }
         // dd($user);
-        return view('users.profile', compact('user', 'userEvents', 'esSeguidor'));
+        return view('users.profile', compact('user')); // 'userEvents', 'esSeguidor'
     }
-
 
     public function delete($id){
       $user = User::find($id);
@@ -110,15 +108,12 @@ class UserController extends Controller
 			return redirect('/users');
 		}
 
-
     public function edit(){
-      //$paises = $this->paises;
       $idiomas = $this->idiomas;
-      $user = Auth::user()->get();
-      dd($user);
+      $user = Auth::user();
+      //dd($user);
 
       if($user){
-        //return view('users.edit', compact('user', 'paises', 'idiomas'));
         return view('users.edit', compact('user', 'idiomas'));
       }
       return redirect('/home');
